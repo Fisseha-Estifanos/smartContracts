@@ -64,8 +64,13 @@ contract HotelRoom {
 
     // a function to book a hotel room by using ether as currency
     receive() external payable notCurrentlyOccupied enoughMoney(2 ether) {
+        // transfer the money to the owner
         owner.transfer(msg.value);
+
+        // change the current room status
         currentHotelRoomStatus= status.Occupied;
+
+        // emit an event
         emit Occupy(msg.sender, msg.value);
     }
 }
