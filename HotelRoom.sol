@@ -39,13 +39,13 @@ contract HotelRoom {
     address payable public owner;
 
     // event to be raised when a room is booked
-    event Occupy(address _occupant, uint _moneyAmount) 
+    event Occupy(address _occupant, uint _moneyAmount);
 
     // our constructor which runs only once when the smart contract is deployed
     // we will define our owner and the current status here
     constructor() public {
         owner= msg.sender;
-            = Status.Vacant;  
+        currentHotelRoomStatus= Status.Vacant;  
     }
 
     // a money modifier
